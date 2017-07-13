@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<assemblies timestamp="06/29/2017 21:28:54">
+  <assembly name="C:\Users\roberto\Documents\Visual Studio 2017\Projects\UnitTestProject1\UnitTestProject1\bin\Debug\UnitTestProject1.DLL" environment="64-bit .NET 4.0.30319.42000 [collection-per-class, parallel (4 threads)]" test-framework="xUnit.net 2.2.0.3545" run-date="2017-06-29" run-time="21:28:54" config-file="C:\Users\roberto\Documents\Visual Studio 2017\Projects\UnitTestProject1\packages\xunit.runner.console.2.2.0\tools\xunit.console.exe.Config" total="3" passed="1" failed="1" skipped="1" time="0.261" errors="0">
+    <errors />
+    <collection total="3" passed="1" failed="1" skipped="1" name="Test collection for UnitTestProject1.UnitTest1" time="0.055">
+      <test name="UnitTestProject1.UnitTest1.TestMethod1" type="UnitTestProject1.UnitTest1" method="TestMethod1" time="0.0480794" result="Pass">
+        <traits>
+          <trait name="TypeTest" value="UI" />
+        </traits>
+      </test>
+      <test name="UnitTestProject1.UnitTest1.TestMethod3" type="UnitTestProject1.UnitTest1" method="TestMethod3" time="0" result="Skip">
+        <traits>
+          <trait name="TypeTest" value="UI" />
+        </traits>
+        <reason><![CDATA[No run]]></reason>
+      </test>
+      <test name="Second test" type="UnitTestProject1.UnitTest1" method="TestMethod2" time="0.0069407" result="Fail">
+        <traits>
+          <trait name="TypeTest" value="UI" />
+          <trait name="TypeTest" value="Regression" />
+        </traits>
+        <failure exception-type="Xunit.Sdk.TrueException">
+          <message><![CDATA[Wrong boolean\r\nExpected: True\r\nActual:   False]]></message>
+          <stack-trace><![CDATA[   at UnitTestProject1.UnitTest1.TestMethod2() in c:\Users\roberto\Documents\Visual Studio 2017\Projects\UnitTestProject1\UnitTestProject1\UnitTest1.cs:line 19]]></stack-trace>
+        </failure>
+      </test>
+    </collection>
+  </assembly>
+</assemblies>
