@@ -5,54 +5,51 @@
 	   <meta name="viewport" content="width=device-width, initial-scale=1">      
 	   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+       <link rel="stylesheet" href="reportunit.css">
        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>           
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>             
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+       <script src="reportunit2.js"></script>
     </head>
     <body>
         <!--<div class="card-panel teal lighten-2"><h3>Hello World!</h3></div>-->
         <div class="main">
-            <div class="main-wrap">
-                <div class="row dashboard">
-                    <div class="col l4">
-                        <div class='card-panel'>
-                            <div class="card-title">Suite Summary 1</div>
-                            <div class='chart-box'>
-                                <canvas class='text-centered' id='suite-analysis'></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col l4">
-                        <div class='card-panel'>
-                            <div class="card-title">Suite Summary 2</div>
-                            <div class='chart-box'>
-                                <canvas class='text-centered' id='suite-analysis'></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col l4">
-                        <div class='card-panel'>
-                            <div class="card-title">Suite Summary 3</div>
-                            <div class='chart-box'>
-                                <canvas class='text-centered' id='suite-analysis'></canvas>
-                            </div>
+            <div class="row dashboard">
+                <div class="col l4">
+                    <div class="card-panel">
+                        <div class="card-title">Suite Summary 1</div>
+                        <div class="chart-box">
+                            <canvas class="text-centered" id="suite-analysis"></canvas>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col s12 m6">
-                        <div class='card-panel large'>
-                            <div class="card-title">Suite Summary 4</div>
-                            <div class='chart-box'>
-                                <canvas class='text-centered' id='suite-analysis'></canvas>
-                            </div>
+                <div class="col l4">
+                    <div class="card-panel">
+                        <div class="card-title">Suite Summary 2</div>
+                        <div class="chart-box">
+                            <canvas class="text-centered" id="test-analysis"></canvas>
                         </div>
                     </div>
-                    <div class="col s12 m6">
-                        <div class='card-panel large'>
+                </div>
+                <div class="col l4">
+                    <div class="card-panel">
+                        <div class="card-title">Suite Summary 3</div>
+                        <div id="chart-area" class="chart-box">
+                            <canvas class="text-centered" id="suite-analysis"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div id="suites" class="suites">
+                    <div class="col l6">
+                        <div class="card-panel no-padding no-margin-v v-spacer">
                             <div class="card-title">Suite Summary 5</div>
-                            <div class='chart-box'>
-                                <canvas class='text-centered' id='suite-analysis'></canvas>
-                            </div>
+                        </div>
+                    </div>
+                    <div class="col l6">
+                        <div class="card-panel no-padding no-margin-v v-spacer">
+                            <div class="card-title">Suite Summary 5</div>
                         </div>
                     </div>
                 </div>
