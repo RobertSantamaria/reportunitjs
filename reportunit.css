@@ -267,7 +267,7 @@ nav a.button-collapse {
     padding-right: .5rem;
 }
 .dashboard .card-panel {
-	height: 245px;
+	width: 245px;
     margin-top: 0;
 }
 #test-analysis, #suite-analysis {
@@ -276,10 +276,9 @@ nav a.button-collapse {
 	text-align: center;
 	width: 145px;
 }
-.fh .card-panel {
-	height: 275px;
-	max-height: 275px;
-	min-height: 275px;
+.run-info .card-panel {
+	
+	margin: 0px auto;
 }
 .chart > div {
 	text-align: center;
@@ -521,4 +520,19 @@ td > .label {
 	.filters .toggle-type {
 		display: none;
 	}
+}
+
+.padre {
+	float: left;
+}
+
+.divuno {
+	float: left;
+	max-width: 120px;
+}
+.divdos {
+	float: right;
+}
+.clear {
+	clear: both;
 }

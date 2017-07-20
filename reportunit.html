@@ -3,8 +3,8 @@
     <head>
        <title>The Materialize Example</title>
 	   <meta name="viewport" content="width=device-width, initial-scale=1">      
-	   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+	   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
        <link rel="stylesheet" href="reportunit.css">
        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>           
        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
@@ -12,30 +12,36 @@
        <script src="reportunit2.js"></script>
     </head>
     <body>
-        <!--<div class="card-panel teal lighten-2"><h3>Hello World!</h3></div>-->
         <div class="main">
-            <div class="row dashboard">
-                <div class="col l4">
+            <div class="row">
+                <div class="col l4 dashboard">
                     <div class="card-panel">
-                        <div class="card-title">Suite Summary 1</div>
-                        <div class="chart-box">
-                            <canvas class="text-centered" id="suite-analysis"></canvas>
+                        <span class="card-title">Test analysis</span>
+                            <div class="">
+                                <canvas id="test-analysis" class="text-centered"></canvas>
+                            </div>
+                            <div id="legend"></div>
+                    </div>
+                </div>
+                <div class="col l4 dashboard">
+                    <div class="card-panel">
+                        <span class="card-title">Pass percentage</span>
+                        <div class="chart-box panel-lead pass-percentage">
+                            <canvas id="test-progress" class="text-centered"></canvas>
                         </div>
                     </div>
                 </div>
-                <div class="col l4">
-                    <div class="card-panel">
-                        <div class="card-title">Suite Summary 2</div>
-                        <div class="chart-box">
-                            <canvas class="text-centered" id="test-analysis"></canvas>
-                        </div>
-                    </div>
-                </div>
-                <div class="col l4">
-                    <div class="card-panel">
-                        <div class="card-title">Suite Summary 3</div>
-                        <div id="chart-area" class="chart-box">
-                            <canvas class="text-centered" id="suite-analysis"></canvas>
+                <div class="col l4 run-info">
+                    <div class="card-panel horizontal">
+                        <div class="card-title">Run info</div>
+                        <div class="card-content">
+                            <ul>
+                                <li>Test results file: C:\Users\roberto\Desktop\test-output.xml</li>
+                                <li>Test framework: xUnit.net 2.2.0.3545</li>
+                                <li>Assembly name: C:\Users\roberto\Documents\Visual Studio 2017\Projects\UnitTestProject1\UnitTestProject1\bin\Debug\UnitTestProject1.DLL</li>
+                                <li>Run date: 2017-06-29</li>
+                                <li>Run time: 21:28:54</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -43,6 +49,7 @@
             <div class="row">
                 <div id="suites" class="suites">
                     <div class="col l6">
+                        <div width="10px" height="10px" style="background-color:#66bb6a;width:10px;height:10px"></div>
                         <div class="card-panel no-padding no-margin-v v-spacer">
                             <div class="card-title">Suite Summary 5</div>
                         </div>
@@ -50,6 +57,16 @@
                     <div class="col l6">
                         <div class="card-panel no-padding no-margin-v v-spacer">
                             <div class="card-title">Suite Summary 5</div>
+                            <ul class="collapsible" data-collapsible="accordion">
+                                <li>
+                                    <div class="collapsible-header"><span class="new badge">4</span><i class="material-icons">expand_more</i>First</div>
+                                    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-header"><span class="badge">1</span><i class="material-icons">place</i>Second</div>
+                                    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                                </li>
+                                </ul>
                         </div>
                     </div>
                 </div>

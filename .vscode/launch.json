@@ -5,7 +5,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "file:///Users/ralgarra/Documents/test/test-output.html",
+            "url": "file:///Users/ralgarra/Documents/test/reportunit.html",
             "webRoot": "${workspaceRoot}"
         },
         {

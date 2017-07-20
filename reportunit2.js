@@ -120,8 +120,8 @@ var errors = $('td.error').length;
 var skipped = $('td.skipped').length;
 */
 var passed = 3;
-var failed = 1;
-var errors = 0;
+var failed = 2;
+var errors = 1;
 var skipped = 1;
 
 /* report -> tests chart */
@@ -132,40 +132,66 @@ function testsChart() {
     var ctx = document.getElementById("test-analysis").getContext("2d");
 
     data = {
-        datasets: [{
-            data: [300, 50, 100]
-        }],
-        // These labels appear in the legend and in the tooltips when hovering different arcs
-        labels: [
-            'Red',
-            'Yellow',
-            'Blue'
-        ]
-    };
-//var options={}
-var myPieChart = new Chart(ctx,
-{
-    "type": "doughnut",
-    "data":
-    {
-        "labels": ["Red","Blue","Yellow"],
-        "datasets":
-        [
+        labels: ["Pass", "Fail", "Error", "Skip"],
+        datasets: [
             {
-                "label": "My First Dataset",
-                "data": [300,50,100],
-                "backgroundColor":
-                [
-                    "rgb(255, 99, 132)",
-                    "rgb(54, 162, 235)",
-                    "rgb(255, 205, 86)"
+                label: "My First Dataset",
+                data: [passed, failed, errors, skipped],
+                backgroundColor: [
+                    "#66bb6a",
+                    "#ef5350",
+                    "#ab47bc",
+                    "#ffee58"
                 ]
             }
         ]
-    },
-    "options": options
-});
+    };
+    var options = {
+        responsive: true,
+        maintainAspectRatio: false,
+/*        tooltips: {
+            callbacks: {
+                label: function (tooltipItem, data) {
+                    return data.labels[tooltipItem.index] + ' (' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index] + '%)';
+                }
+            }
+        },
+        legendCallback: function (chart) {
+            var text = [];
+            text.push('<ul class="legend">');
 
+            var data = chart.data;
+            var datasets = data.datasets;
+            var labels = data.labels;
+
+            if (datasets.length) {
+                for (var i = 0; i < datasets[0].data.length; ++i) {
+                    text.push('<li><span style="background-color:' + datasets[0].backgroundColor + '">' + labels[i] + '</span>');
+                    if (labels[i]) {
+                        text.push(labels[i] + ' (' + datasets[0].data[i] + '%)');
+                    }
+                    text.push('</li>');
+                }
+            }
+            text.push('</ul>');
+            return text.join('');
+        },*/
+        legend: {
+            // since you're providing your own legend
+            display: true,
+            position: "right"
+        }
+    };
+    var myPieChart = new Chart(ctx,
+    {
+        type: "doughnut",
+        data: data,
+        options: options
+    });
+
+    //var legend = myPieChart.generateLegend();
+    //document.getElementById("legend").innerHTML = legend;
+//drawLegend(myPieChart, "test-analysis")
 /*
     var data = {};
     
@@ -206,28 +232,4 @@ var myPieChart = new Chart(ctx,
         options: options
     });
 	drawLegend(testChart, 'test-analysis');*/
-}
-
-/* draw legend for test and step charts [DASHBOARD] */
-function drawLegend(chart, id) {
-	var helpers = Chart.helpers;
-	var legendHolder = document.getElementById(id);
-	
-	legendHolder.innerHTML = chart.generateLegend();
-	
-	helpers.each(legendHolder.firstChild.childNodes, function(legendNode, index) {
-		helpers.addEvent(legendNode, 'mouseover', function() {
-			var activeSegment = chart.segments[index];
-			activeSegment.save();
-			activeSegment.fillColor = activeSegment.highlightColor;
-			chart.showTooltip([activeSegment]);
-			activeSegment.restore();
-		});
-	});
-	
-	Chart.helpers.addEvent(legendHolder.firstChild, 'mouseout', function() {
-		chart.draw();
-	});
-	
-	$('#' + id).after(legendHolder.firstChild);
 }
