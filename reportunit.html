@@ -39,8 +39,7 @@
                                 <li>Test results file: C:\Users\roberto\Desktop\test-output.xml</li>
                                 <li>Test framework: xUnit.net 2.2.0.3545</li>
                                 <li>Assembly name: C:\Users\roberto\Documents\Visual Studio 2017\Projects\UnitTestProject1\UnitTestProject1\bin\Debug\UnitTestProject1.DLL</li>
-                                <li>Run date: 2017-06-29</li>
-                                <li>Run time: 21:28:54</li>
+                                <li>Run date: 21:28:54 2017-06-29</li>
                             </ul>
                         </div>
                     </div>
@@ -49,9 +48,27 @@
             <div class="row">
                 <div id="suites" class="suites">
                     <div class="col l6">
-                        <div width="10px" height="10px" style="background-color:#66bb6a;width:10px;height:10px"></div>
                         <div class="card-panel no-padding no-margin-v v-spacer">
-                            <div class="card-title">Suite Summary 5</div>
+                            <div class="card-title">Test Suites</div>
+                            <div id="suite-collection" class="card-content no-margin-v">
+                                <div class='suite-name'>Test collection for UnitTestProject1.UnitTest1</div>
+                                <div class="suite-content">
+                                    <ul class="collapsible" data-collapsible="accordion">
+                                        <li>
+                                            <div class="collapsible-header"><span class="new badge green" data-badge-caption="Passed"></span><i class="material-icons">expand_more</i>UnitTestProject1.UnitTest1.TestMethod1</div>
+                                            <div class="collapsible-body"><p>The test passed successfully</p></div>
+                                        </li>
+                                        <li>
+                                            <div class="collapsible-header"><span class="new badge orange" data-badge-caption="Skipped"></span><i class="material-icons">expand_more</i>UnitTestProject1.UnitTest1.TestMethod3</div>
+                                            <div class="collapsible-body"><p>The test was skipped</p></div>
+                                        </li>
+                                        <li>
+                                            <div class="collapsible-header"><span class="new badge red" data-badge-caption="Failed"></span><i class="material-icons">expand_more</i>Second test</div>
+                                            <div class="collapsible-body"><p>Wrong boolean\r\nExpected: True\r\nActual:   Falseat UnitTestProject1.UnitTest1.TestMethod2() in c:\Users\roberto\Documents\Visual Studio 2017\Projects\UnitTestProject1\UnitTestProject1\UnitTest1.cs:line 19</p></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col l6">
@@ -66,7 +83,7 @@
                                     <div class="collapsible-header"><span class="badge">1</span><i class="material-icons">place</i>Second</div>
                                     <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
                                 </li>
-                                </ul>
+                            </ul>
                         </div>
                     </div>
                 </div>

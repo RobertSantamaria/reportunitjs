@@ -140,8 +140,8 @@ function testsChart() {
                 backgroundColor: [
                     "#66bb6a",
                     "#ef5350",
-                    "#ab47bc",
-                    "#ffee58"
+                    "#ffa726",
+                    "#03a9f4"
                 ]
             }
         ]
