@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
-       <title>The Materialize Example</title>
-	   <meta name="viewport" content="width=device-width, initial-scale=1">      
-	   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
-	   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-       <link rel="stylesheet" href="reportunit.css">
-       <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>           
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-       <script src="reportunit2.js"></script>
+        <title>The Materialize Example</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1">      
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+	    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="reportunit.css">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>           
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+        <script src="reportunit2.js"></script>
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            th, td {
+                text-align: left;
+                padding: 8px;
+            }
+            tr:nth-child(even){ background-color: #f2f2f2}
+        </style>
     </head>
     <body>
         <div class="main">
@@ -35,12 +46,26 @@
                     <div class="card-panel horizontal">
                         <div class="card-title">Run info</div>
                         <div class="card-content">
-                            <ul>
-                                <li>Test results file: C:\Users\roberto\Desktop\test-output.xml</li>
-                                <li>Test framework: xUnit.net 2.2.0.3545</li>
-                                <li>Assembly name: C:\Users\roberto\Documents\Visual Studio 2017\Projects\UnitTestProject1\UnitTestProject1\bin\Debug\UnitTestProject1.DLL</li>
-                                <li>Run date: 21:28:54 2017-06-29</li>
-                            </ul>
+                            <div style="overflow-x:auto">
+                                <table>
+                                    <tr>
+                                        <td style="white-space:nowrap"><b>Test results file</b></td>
+                                        <td style="white-space:nowrap">C:\Users\roberto\Desktop\test-output.xml</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="white-space:nowrap"><b>Assembly name</b></td>
+                                        <td style="white-space:nowrap">C:\Users\roberto\Documents\Visual Studio 2017\Projects\UnitTestProject1\UnitTestProject1\bin\Debug\UnitTestProject1.DLL</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="white-space:nowrap"><b>Test framework</b></td>
+                                        <td style="white-space:nowrap"><span style="margin-right:10px">xUnit.net</span><span>2.2.0.3545</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="white-space:nowrap"><b>Run date</b></td>
+                                        <td style="white-space:nowrap"><span style="margin-right:10px">21:28:54</span><span>2017-06-29</span></td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
