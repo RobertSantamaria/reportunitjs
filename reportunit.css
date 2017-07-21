@@ -24,13 +24,11 @@ td.test-name {
 td.test-status {
 	min-width: 25%;
 }
-th {
-    background: #f8f8f8;
-}
+
 th, td {
-    border: 1px solid #e5e5e5;
+	text-align: letf;
 	padding: 10px;
-	word-break: break-all;
+	white-space: nowrap;
 }
 
 /* -- [ material overrides ] -- */

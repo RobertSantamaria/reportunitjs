@@ -10,24 +10,13 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
         <script src="reportunit2.js"></script>
-        <style>
-            table {
-                border-collapse: collapse;
-                width: 100%;
-            }
-            th, td {
-                text-align: left;
-                padding: 8px;
-            }
-            tr:nth-child(even){ background-color: #f2f2f2}
-        </style>
     </head>
     <body>
         <div class="main">
             <div class="row">
                 <div class="col l4 dashboard">
                     <div class="card-panel">
-                        <span class="card-title">Test analysis</span>
+                        <span class="card-title"><b>Test analysis</b></span>
                             <div class="">
                                 <canvas id="test-analysis" class="text-centered"></canvas>
                             </div>
@@ -36,7 +25,7 @@
                 </div>
                 <div class="col l4 dashboard">
                     <div class="card-panel">
-                        <span class="card-title">Pass percentage</span>
+                        <span class="card-title"><b>Pass percentage</b></span>
                         <div class="chart-box panel-lead pass-percentage">
                             <canvas id="test-progress" class="text-centered"></canvas>
                         </div>
@@ -44,25 +33,25 @@
                 </div>
                 <div class="col l4 run-info">
                     <div class="card-panel horizontal">
-                        <div class="card-title">Run info</div>
+                        <div class="card-title"><b>Run info</b></div>
                         <div class="card-content">
                             <div style="overflow-x:auto">
-                                <table>
+                                <table class="striped">
                                     <tr>
-                                        <td style="white-space:nowrap"><b>Test results file</b></td>
-                                        <td style="white-space:nowrap">C:\Users\roberto\Desktop\test-output.xml</td>
+                                        <td><b>Test results file</b></td>
+                                        <td>C:\Users\roberto\Desktop\test-output.xml</td>
                                     </tr>
                                     <tr>
-                                        <td style="white-space:nowrap"><b>Assembly name</b></td>
-                                        <td style="white-space:nowrap">C:\Users\roberto\Documents\Visual Studio 2017\Projects\UnitTestProject1\UnitTestProject1\bin\Debug\UnitTestProject1.DLL</td>
+                                        <td><b>Assembly name</b></td>
+                                        <td>C:\Users\roberto\Documents\Visual Studio 2017\Projects\UnitTestProject1\UnitTestProject1\bin\Debug\UnitTestProject1.DLL</td>
                                     </tr>
                                     <tr>
-                                        <td style="white-space:nowrap"><b>Test framework</b></td>
-                                        <td style="white-space:nowrap"><span style="margin-right:10px">xUnit.net</span><span>2.2.0.3545</span></td>
+                                        <td><b>Test framework</b></td>
+                                        <td><span style="margin-right:10px">xUnit.net</span>2.2.0.3545</td>
                                     </tr>
                                     <tr>
-                                        <td style="white-space:nowrap"><b>Run date</b></td>
-                                        <td style="white-space:nowrap"><span style="margin-right:10px">21:28:54</span><span>2017-06-29</span></td>
+                                        <td><b>Run date</b></td>
+                                        <td><span style="margin-right:10px">21:28:54</span>2017-06-29</td>
                                     </tr>
                                 </table>
                             </div>
