@@ -5,16 +5,55 @@ $(document).ready(function() {
     showTestList();
     drawPercentageChart();
     testsChart();
-    
+
+    buildSuiteDropdown();
+
+    $('select').material_select();
+    suiteFilter();
+
     $(".collapsible").collapsible();
 });
 
+function buildSuiteDropdown(){
+    var numberOfSuites = $("#suite-collection .collection-item");
+
+    for (i = 1; i <= numberOfSuites.length; i++){
+        var suiteName = $("li:nth-child(" + i + ") .suite-head").text();
+        var html = "<option value='" + i + "'>" + suiteName + "</option>";
+        $("#collection-select").append(html);
+    }
+}
+
+function suiteFilter() {
+      $("#collection-select").on("change", function(e) {
+        var suiteSelected = $('#collection-select').parent(["0"]).children()[1].value;
+        console.log(suiteSelected);
+
+        var numberOfSuites = $("#suite-collection .collection-item");
+
+        var index = 0;
+        for (i = 1; i <= numberOfSuites.length; i++) {
+            var suiteName = $(".details-container li:nth-child(" + i + ") .suite-head").text();
+            if (suiteName === suiteSelected) {
+                index = i;
+                break;
+            }
+        }
+        //$('.#suite-collection table tr.test-status:not(.' + opt + '), .details-container tr.test-status:not(.' + opt).addClass('hide');
+        //$('.suite table tr.test-status.' + opt + ', .details-container tr.test-status.' + opt).removeClass('hide');
+  });
+}
+
 function showTestList() {
     $(".details-container").html("");
-    var numberOfSuites = $("#suite-collection .suite-content");
-    for (i = 0; i < numberOfSuites.length; i++){
-        var suiteName = "#suite" + parseInt(i+1);
-        var html = $("#suite-collection").find(suiteName).html();    
+    var numberOfSuites = $("#suite-collection .collection-item");
+
+    for (i = 1; i <= numberOfSuites.length; i++){
+        //var suiteContent = "li:nth-child(" + i + ") .collection-item";
+        var suiteChild = "li:nth-child(" + i + ") .collection-item";
+        var html = $("#suite-collection").find(suiteChild).html();
+        //var collection = $("#suite-collection");
+        
         $(".details-container").append(html);
         $(".details-container ul.collapsible").addClass("tests");
         $(".details-container .suite-content").removeClass("hide");

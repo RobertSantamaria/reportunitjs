@@ -65,53 +65,55 @@
                 <div id="suites" class="suites">
                     <div class="col l6">
                         <div class="card-panel">
-                            <p id="demo" onclick="myFunction()">Click me to change my text color.</p>
                             <div class="card-title"><b>Test Collections</b></div>
+                                <div class="input-field col s12">
+                                    <select id="collection-select">
+                                        <option value="" disabled selected>Choose collection</option>
+                                    </select>
+                                </div>
                             <div class="card-content">
-                                <ul id="suites-dropdown" class="dropdown-content">
-                                    <li class='Passed'><a href='#!'>Passed</a></li>
-                                    <li class='Skipped'><a href='#!'>Skipped</a></li>
-                                    <li class='Failed'><a href='#!'>Failed</a></li>
-                                </ul>
-                                <i type="button" class="btn dropdown-button" href="#" data-activates="suites-dropdown">list</i>
                                 <button type="button" class="btn clear">Clear</button>
                                 <ul id="suite-collection" class="collection">
-                                    <li class="suite1">
-                                        <div class='suite-head collection-item'>Test collection for UnitTestProject1.UnitTest1</div>
-                                        <div class="suite-content hide">
-                                            <ul class="collapsible" data-collapsible="accordion">
-                                                <li>
-                                                    <div class="collapsible-header test-name passed"><i class="material-icons">expand_more</i>UnitTestProject1.UnitTest1.TestMethod1<span class="new badge green right-align" style="margin-top:0px" data-badge-caption="Passed"></span></div>
-                                                    <div class="collapsible-body"><p>The test passed successfully</p></div>
-                                                </li>
-                                                <li>
-                                                    <div class="collapsible-header test-name skipped"><i class="material-icons">expand_more</i>UnitTestProject1.UnitTest1.TestMethod3<span class="new badge blue right-align" style="margin-top:0px" data-badge-caption="Skipped"></span></div>
-                                                    <div class="collapsible-body"><p>The test was skipped</p></div>
-                                                </li>
-                                                <li>
-                                                    <div class="collapsible-header test-name failed"><i class="material-icons">expand_more</i>Second test<span class="new badge red right-align" style="margin-top:0px" data-badge-caption="Failed"></span></div>
-                                                    <div class="collapsible-body"><p>Wrong boolean\r\nExpected: True\r\nActual:   Falseat UnitTestProject1.UnitTest1.TestMethod2() in c:\Users\roberto\Documents\Visual Studio 2017\Projects\UnitTestProject1\UnitTestProject1\UnitTest1.cs:line 19</p></div>
-                                                </li>
-                                            </ul>
+                                    <li class="suite">
+                                        <div class='collection-item'>
+                                            <div class="suite-head">Test collection for UnitTestProject1.UnitTest1</div>
+                                            <div class="suite-content hide">
+                                                <ul class="collapsible" data-collapsible="accordion">
+                                                    <li>
+                                                        <div class="collapsible-header test-name passed"><i class="material-icons">expand_more</i>UnitTestProject1.UnitTest1.TestMethod1<span class="new badge green right-align" style="margin-top:0px" data-badge-caption="Passed"></span></div>
+                                                        <div class="collapsible-body"><p>The test passed successfully</p></div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="collapsible-header test-name skipped"><i class="material-icons">expand_more</i>UnitTestProject1.UnitTest1.TestMethod3<span class="new badge blue right-align" style="margin-top:0px" data-badge-caption="Skipped"></span></div>
+                                                        <div class="collapsible-body"><p>The test was skipped</p></div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="collapsible-header test-name failed"><i class="material-icons">expand_more</i>Second test<span class="new badge red right-align" style="margin-top:0px" data-badge-caption="Failed"></span></div>
+                                                        <div class="collapsible-body"><p>Wrong boolean\r\nExpected: True\r\nActual:   Falseat UnitTestProject1.UnitTest1.TestMethod2() in c:\Users\roberto\Documents\Visual Studio 2017\Projects\UnitTestProject1\UnitTestProject1\UnitTest1.cs:line 19</p></div>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </li>
-                                    <li id="suite2">
-                                        <div class='suite-head collection-item'>Test collection for UnitTestProject1.UnitTest2</div>
-                                        <div class="suite-content hide">
-                                            <ul class="collapsible" data-collapsible="accordion">
-                                                <li>
-                                                    <div class="collapsible-header test-name passed"><i class="material-icons">expand_more</i>UnitTestProject1.UnitTest1.TestMethod4<span class="new badge green right-align" style="margin-top:0px" data-badge-caption="Passed"></span></div>
-                                                    <div class="collapsible-body"><p>The test passed successfully</p></div>
-                                                </li>
-                                                <li>
-                                                    <div class="collapsible-header test-name skipped"><i class="material-icons">expand_more</i>UnitTestProject1.UnitTest1.TestMethod5<span class="new badge blue right-align" style="margin-top:0px" data-badge-caption="Skipped"></span></div>
-                                                    <div class="collapsible-body"><p>The test was skipped</p></div>
-                                                </li>
-                                                <li>
-                                                    <div class="collapsible-header test-name failed"><i class="material-icons">expand_more</i>5 test<span class="new badge red right-align" style="margin-top:0px" data-badge-caption="Failed"></span></div>
-                                                    <div class="collapsible-body"><p>Wrong boolean\r\nExpected: True\r\nActual:   Falseat UnitTestProject1.UnitTest1.TestMethod2() in c:\Users\roberto\Documents\Visual Studio 2017\Projects\UnitTestProject1\UnitTestProject1\UnitTest1.cs:line 19</p></div>
-                                                </li>
-                                            </ul>
+                                    <li class="suite">
+                                        <div class='collection-item'>
+                                            <div class="suite-head">Test collection for UnitTestProject1.UnitTest2</div>
+                                            <div class="suite-content hide">
+                                                <ul class="collapsible" data-collapsible="accordion">
+                                                    <li>
+                                                        <div class="collapsible-header test-name passed"><i class="material-icons">expand_more</i>UnitTestProject1.UnitTest1.TestMethod4<span class="new badge green right-align" style="margin-top:0px" data-badge-caption="Passed"></span></div>
+                                                        <div class="collapsible-body"><p>The test passed successfully</p></div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="collapsible-header test-name skipped"><i class="material-icons">expand_more</i>UnitTestProject1.UnitTest1.TestMethod5<span class="new badge blue right-align" style="margin-top:0px" data-badge-caption="Skipped"></span></div>
+                                                        <div class="collapsible-body"><p>The test was skipped</p></div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="collapsible-header test-name failed"><i class="material-icons">expand_more</i>Test six<span class="new badge red right-align" style="margin-top:0px" data-badge-caption="Failed"></span></div>
+                                                        <div class="collapsible-body"><p>Wrong boolean\r\nExpected: True\r\nActual:   Falseat UnitTestProject1.UnitTest1.TestMethod2() in c:\Users\roberto\Documents\Visual Studio 2017\Projects\UnitTestProject1\UnitTestProject1\UnitTest1.cs:line 19</p></div>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </li>
                                 </ul>

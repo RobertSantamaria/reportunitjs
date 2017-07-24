@@ -6,8 +6,9 @@ $( document ).ready(function() {
     */
   $('select').not('.disabled').material_select();
   $('#select1').on('change', function(e) {
-        console.log($('#select1').parent(["0"]).children()[1].value);
-    alert('Select Changed');
+        var opt = $('#select1').parent(["0"]).children()[1].value;
+        console.log(opt);
+    alert('Select Changed to ' + opt);
   });
 });
 
