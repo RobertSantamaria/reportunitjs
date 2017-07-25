@@ -1,10 +1,14 @@
-var menuWidth = 260;
+var total = 0;
+var passed = 0;
+var failed = 0;
+var skipped = 0;
+var errors = 0;
 
 $(document).ready(function() {
     /* init */
     showTestList();
     drawPercentageChart();
-    testsChart();
+    drawTestsChart();
 
     buildSuiteDropdown();
 
@@ -18,161 +22,148 @@ function buildSuiteDropdown(){
     var numberOfSuites = $("#suite-collection .collection-item");
 
     for (i = 1; i <= numberOfSuites.length; i++){
-        var suiteName = $("li:nth-child(" + i + ") .suite-head").text();
+        var suiteName = $("#suite-collection li:nth-child(" + i + ") .suite-head").text();
         var html = "<option value='" + i + "'>" + suiteName + "</option>";
         $("#collection-select").append(html);
     }
 }
 
 function suiteFilter() {
-      $("#collection-select").on("change", function(e) {
+    $("#collection-select").on("change", function(e) {
         var suiteSelected = $('#collection-select').parent(["0"]).children()[1].value;
-        console.log(suiteSelected);
-
         var numberOfSuites = $("#suite-collection .collection-item");
 
-        var index = 0;
         for (i = 1; i <= numberOfSuites.length; i++) {
             var suiteName = $(".details-container li:nth-child(" + i + ") .suite-head").text();
             if (suiteName === suiteSelected) {
-                index = i;
-                break;
+                $(".details-container li:nth-child(" + i + ") .suite-head").removeClass("hide");
+                $(".details-container li:nth-child(" + i + ") .suite-content").removeClass("hide");
+            }
+            else {
+                $(".details-container li:nth-child(" + i + ") .suite-head").addClass("hide");
+                $(".details-container li:nth-child(" + i + ") .suite-content").addClass("hide");
             }
         }
-        //$('.#suite-collection table tr.test-status:not(.' + opt + '), .details-container tr.test-status:not(.' + opt).addClass('hide');
-        //$('.suite table tr.test-status.' + opt + ', .details-container tr.test-status.' + opt).removeClass('hide');
-  });
+    });
 }
 
 function showTestList() {
     $(".details-container").html("");
     var numberOfSuites = $("#suite-collection .collection-item");
+    var html = ("<ul>");
 
     for (i = 1; i <= numberOfSuites.length; i++){
-        //var suiteContent = "li:nth-child(" + i + ") .collection-item";
         var suiteChild = "li:nth-child(" + i + ") .collection-item";
-        var html = $("#suite-collection").find(suiteChild).html();
-        //var collection = $("#suite-collection");
         
-        $(".details-container").append(html);
-        $(".details-container ul.collapsible").addClass("tests");
-        $(".details-container .suite-content").removeClass("hide");
+        html += "<li>";
+        html += $("#suite-collection").find(suiteChild).html();
+        html += "</li>";
     }
+    html += ("</ul>");
+
+    $(".details-container").append(html);
+    $(".details-container .suite-content").removeClass("hide");
 }
 
 function drawPercentageChart() {
-    var total = $(".tests .test-name").length;
-    var passed = $(".tests .test-name.passed").length;
-    var failed = $(".tests .test-name.failed").length;
-    var errors = $(".tests .test-name.error").length;
-    var skipped = $(".tests .test-name.skipped").length;
+    total = $("#suite-collection .test-name").length;
+    passed = $("#suite-collection .test-name.passed").length;
+    failed = $("#suite-collection .test-name.failed").length;
+    errors = $("#suite-collection .test-name.error").length;
+    skipped = $("#suite-collection .test-name.skipped").length;
 
     var passedPercentage = Math.round(((passed / total) * 100)) + "%";
     $(".pass-percentage").text(passedPercentage);
     $(".dashboard .determinate").attr("style", "width:" + passedPercentage);
 }
 
-/* show suite data on click */
-$('.suite').click(function() {
-    var t = $(this);
-    
-    $('.suite').removeClass('active');
-    $('.suite-name-displayed, .details-container').html('');
-    
-    t.toggleClass('active');
-    var html = t.find('.suite-content').html();
-    
-    $('.suite-name-displayed').text(t.find('.suite-name').text());
-    $('.details-container').append(html);
-});
-
-$('#slide-out .report-item > a').filter(function(){
-    return this.href.match(/[^\/]+$/)[0] == document.location.pathname.match(/[^\/]+$/)[0];
-}).parent().addClass('active');
-
-$(".btn .clear").click(function() {
-    var t = $(this);
-});
-
-/* filters -> by suite status */
-$('#suites-dropdown').click(function() {
-    var t = $(this);
-    
-    if (!t.hasClass('clear')) {
-        resetFilters();
-        
-        var status = t.text().toLowerCase();
-        
-        $('#suites .suite').addClass('hide');
-        $('#suites .suite.' + status).removeClass('hide');
-        
-        selectVisSuite()
+function drawTestsChart() {
+	if (!$('#test-analysis').length) {
+		return false;
     }
-});
 
-/* filters -> by test status */
-$('#tests-dropdown li').click(function() {
-    var t = $(this);
+    var ctx = document.getElementById("test-analysis").getContext("2d");
 
-    if (!t.hasClass('clear')) {
-        resetFilters();
-        
-        var opt = t.text().toLowerCase();
-        
-        //We filter tests here...
-        $('.suite table tr.test-status:not(.' + opt + '), .details-container tr.test-status:not(.' + opt).addClass('hide');
-        $('.suite table tr.test-status.' + opt + ', .details-container tr.test-status.' + opt).removeClass('hide');
-        
-        hideEmptySuites();
-        selectVisSuite()
-    }
-});
+    data = {
+        labels: ["Passed", "Failed", "Skipped", "Errors"],
+        datasets: [
+            {
+                data: [passed, failed, skipped, errors],
+                backgroundColor: [
+                    "#66bb6a",
+                    "#ef5350",
+                    "#03a9f4",
+                    "#ffa726"
+                ]
+            }
+        ]
+    };
 
-$('.clear').click(function() {
-    resetFilters(); selectVisSuite()
-});
+    var options = {
+        responsive: false,
+        maintainAspectRatio: true,
+        tooltips: {
+            callbacks: {
+                label: function (tooltipItem, data) {
+                    return data.labels[tooltipItem.index] + ': ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                }
+            }
+        },
+        legendCallback: function (chart) {
+            var text = [];
+            text.push('<ul class="doughnut-legend">');
 
-function hideEmptySuites() {
-    $('.suite').each(function() {
-        var t = $(this);
-        
-        if (t.find('tr.test-status').length == t.find('tr.test-status.hide').length) {
-            t.addClass('hide');
+            var data = chart.data;
+            var datasets = data.datasets;
+            var labels = data.labels;
+
+            if (datasets.length) {
+                for (var i = 0; i < datasets[0].data.length; ++i) {
+                    text.push('<li><span style="background-color:' + datasets[0].backgroundColor[i] + ';"></span>');
+                    if (labels[i]) {
+                        text.push(datasets[0].data[i] + ' ' + labels[i]);
+                    }
+                    //text.push('<div>percentage</div>');
+                    text.push('</li>');
+                }
+            }
+            text.push('</ul>');
+            console.log(text);
+            return text.join('');
+        },
+        legend: {
+            display: false
         }
+    };
+
+    var chart = new Chart(ctx,
+    {
+        type: "doughnut",
+        data: data,
+        options: options
     });
+
+    var legend = chart.generateLegend();
+    document.getElementById("legend").innerHTML = legend;
 }
 
-function resetFilters() {
-    $('.suite, tr.test-status').removeClass('hide');
-    $('.suite-toggle li:first-child, .tests-toggle li:first-child, .feature-toggle li:first-child').click();
-}
-
-function selectVisSuite() {
-    $('.suite').get(0).click();
-}
-
-function clickListItem(listClass, index) {
-    $('#' + listClass).find('li').get(index).click();
-}
-
-/* report -> tests chart */
-function testsChart() {
+/*
+function drawTestsChart() {
 	if (!$('#test-analysis').length) {
 		return false;
     }
     var ctx = document.getElementById("test-analysis").getContext("2d");
 
     data = {
-        labels: ["Pass", "Fail", "Error", "Skip"],
+        labels: ["Passed", "Failed", "Skipped", "Errors"],
         datasets: [
             {
-                label: "My First Dataset",
-                data: [1, 1, 0, 1],
+                data: [passed, failed, skipped, errors],
                 backgroundColor: [
                     "#66bb6a",
                     "#ef5350",
-                    "#ffa726",
-                    "#03a9f4"
+                    "#03a9f4",
+                    "#ffa726"
                 ]
             }
         ]
@@ -192,3 +183,4 @@ function testsChart() {
         options: options
     });
 }
+*/

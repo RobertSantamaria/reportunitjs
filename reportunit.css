@@ -259,14 +259,15 @@ nav a.button-collapse {
     padding-right: .5rem;
 }
 .dashboard .card-panel {
-	width: 245px;
+	/*width: 245px;*/
+	height: 350px;
     margin-top: 0;
 }
 #test-analysis, #suite-analysis {
-	height: 115px;
-	margin: 10px auto 0;
+	height: 200px;
+	margin: 10px 0 0;
 	text-align: center;
-	width: 145px;
+	width: 200px;
 }
 .run-info .card-panel {
 	
@@ -277,7 +278,7 @@ nav a.button-collapse {
 }
 .chart-box {
 	display: block;
-	margin: 0 auto;
+	margin: 0 0;
 	text-align: center;
 }
 .doughnut-legend li span {
@@ -292,7 +293,7 @@ nav a.button-collapse {
 .doughnut-legend {
 	display: inline-block;
 	list-style: none;
-	margin: 10px 0 0 -35px;
+	margin: 50px 0 0 20px;
 	font-size: 12px;
 }
 .doughnut-legend li {
@@ -301,6 +302,7 @@ nav a.button-collapse {
 .doughnut-legend li:first-letter {
 	text-transform: capitalize;
 }
+
 .panel-lead {
 	font-size: 24px !important;
 	padding: 50px 0 85px;
