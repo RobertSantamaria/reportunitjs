@@ -64,70 +64,163 @@
                 </div>
             </div>
             <div class="row">
-                <div id="suites" class="suites">
-                    <div class="col l6">
-                        <div class="card-panel">
-                            <div class="card-title"><b>Test Collections</b></div>
-                                <div class="input-field col s12">
-                                    <select id="collection-select">
-                                        <option value="" disabled selected>Choose collection</option>
-                                    </select>
-                                </div>
-                            <div class="card-content">
-                                <button type="button" class="btn clear">Clear</button>
-                                <ul id="suite-collection" class="collection">
-                                    <li class="suite">
-                                        <div class='collection-item'>
-                                            <div class="suite-head">Test collection for UnitTestProject1.UnitTest1</div>
-                                            <div class="suite-content hide">
-                                                <ul class="collapsible" data-collapsible="accordion">
-                                                    <li>
-                                                        <div class="collapsible-header test-name passed"><i class="material-icons">expand_more</i>UnitTestProject1.UnitTest1.TestMethod1<span class="new badge green right-align" style="margin-top:0px" data-badge-caption="Passed"></span></div>
-                                                        <div class="collapsible-body"><p>The test passed successfully</p></div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="collapsible-header test-name skipped"><i class="material-icons">expand_more</i>UnitTestProject1.UnitTest1.TestMethod3<span class="new badge blue right-align" style="margin-top:0px" data-badge-caption="Skipped"></span></div>
-                                                        <div class="collapsible-body"><p>The test was skipped</p></div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="collapsible-header test-name failed"><i class="material-icons">expand_more</i>Second test<span class="new badge red right-align" style="margin-top:0px" data-badge-caption="Failed"></span></div>
-                                                        <div class="collapsible-body"><p>Wrong boolean\r\nExpected: True\r\nActual:   Falseat UnitTestProject1.UnitTest1.TestMethod2() in c:\Users\roberto\Documents\Visual Studio 2017\Projects\UnitTestProject1\UnitTestProject1\UnitTest1.cs:line 19</p></div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="suite">
-                                        <div class='collection-item'>
-                                            <div class="suite-head">Test collection for UnitTestProject1.UnitTest2</div>
-                                            <div class="suite-content hide">
-                                                <ul class="collapsible" data-collapsible="accordion">
-                                                    <li>
-                                                        <div class="collapsible-header test-name passed"><i class="material-icons">expand_more</i>UnitTestProject1.UnitTest1.TestMethod4<span class="new badge green right-align" style="margin-top:0px" data-badge-caption="Passed"></span></div>
-                                                        <div class="collapsible-body"><p>The test passed successfully</p></div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="collapsible-header test-name skipped"><i class="material-icons">expand_more</i>UnitTestProject1.UnitTest1.TestMethod5<span class="new badge blue right-align" style="margin-top:0px" data-badge-caption="Skipped"></span></div>
-                                                        <div class="collapsible-body"><p>The test was skipped</p></div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="collapsible-header test-name failed"><i class="material-icons">expand_more</i>Test six<span class="new badge red right-align" style="margin-top:0px" data-badge-caption="Failed"></span></div>
-                                                        <div class="collapsible-body"><p>Wrong boolean\r\nExpected: True\r\nActual:   Falseat UnitTestProject1.UnitTest1.TestMethod2() in c:\Users\roberto\Documents\Visual Studio 2017\Projects\UnitTestProject1\UnitTestProject1\UnitTest1.cs:line 19</p></div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
+                <div class="col l6">
+                    <div class="card-panel">
+                        <div class="card-title"><b>Filters</b></div>
+                            <div class="input-field col s12">
+                                <select id="collection-select">
+                                    <option value="" disabled selected>Choose collection</option>
+                                </select>
                             </div>
+                        <div class="card-content">
+                            <button type="button" class="btn clear">Clear</button>
                         </div>
                     </div>
-                    <div class="col l6">
-                        <div class="card-panel">
-                            <div class="card-title"><b>Test Summary</b></div>
-                            <div class="card-content">
-                                <div class="details-container"></div>
-                            </div>
+                </div>
+                <div class="col l6">
+                    <div class="card-panel">
+                        <div class="card-title"><b>Test Summary</b></div>
+                        <div class="card-content">
+                            <ul id="test-list" class="collapsible" data-collapsible="accordion">
+                                <li class="test">
+                                    <div class="collapsible-header test-name passed"><i class="material-icons">expand_more</i>UnitTestProject1.UnitTest1.TestMethod1<span class="new badge green right-align" style="margin-top:0px" data-badge-caption="Passed"></span></div>
+                                    <div class="collapsible-body">
+                                        <div style="overflow-x:auto">
+                                            <table class="striped">
+                                                <tr class="collection-name">
+                                                    <td><b>Collection name</b></td>
+                                                    <td>Test collection for UnitTestProject1.UnitTest1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>Traits</b></td>
+                                                    <td>TestType-UI</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>Duration</b></td>
+                                                    <td>0.2s</td>
+                                                </tr>
+                                            </table>
+                                            <p><b>Message</b></p>
+                                            <p>The test passed successfully</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="test">
+                                    <div class="collapsible-header test-name skipped"><i class="material-icons">expand_more</i>UnitTestProject1.UnitTest1.TestMethod3<span class="new badge blue right-align" style="margin-top:0px" data-badge-caption="Skipped"></span></div>
+                                    <div class="collapsible-body">
+                                        <div style="overflow-x:auto">
+                                            <table class="striped">
+                                                <tr class="collection-name">
+                                                    <td><b>Collection name</b></td>
+                                                    <td>Test collection for UnitTestProject1.UnitTest1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>Traits</b></td>
+                                                    <td>TestType-UI</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>Duration</b></td>
+                                                    <td>0.2s</td>
+                                                </tr>
+                                            </table>
+                                            <p><b>Message</b></p>
+                                            <p>The test was skipped</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="test">
+                                    <div class="collapsible-header test-name failed"><i class="material-icons">expand_more</i>Second test<span class="new badge red right-align" style="margin-top:0px" data-badge-caption="Failed"></span></div>
+                                    <div class="collapsible-body">
+                                        <div style="overflow-x:auto">
+                                            <table class="striped">
+                                                <tr class="collection-name">
+                                                    <td><b>Collection name</b></td>
+                                                    <td>Test collection for UnitTestProject1.UnitTest1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>Traits</b></td>
+                                                    <td>TestType-UI</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>Duration</b></td>
+                                                    <td>0.2s</td>
+                                                </tr>
+                                            </table>
+                                            <p><b>Message</b></p>
+                                            <p>Wrong boolean\r\nExpected: True\r\nActual:   Falseat UnitTestProject1.UnitTest1.TestMethod2() in c:\Users\roberto\Documents\Visual Studio 2017\Projects\UnitTestProject1\UnitTestProject1\UnitTest1.cs:line 19</p>
+                                        </div>                                                    
+                                    </div>
+                                </li>
+                                <li class="test">
+                                    <div class="collapsible-header test-name passed"><i class="material-icons">expand_more</i>UnitTestProject1.UnitTest1.TestMethod4<span class="new badge green right-align" style="margin-top:0px" data-badge-caption="Passed"></span></div>
+                                    <div class="collapsible-body">
+                                        <div style="overflow-x:auto">
+                                            <table class="striped">
+                                                <tr class="collection-name">
+                                                    <td><b>Collection name</b></td>
+                                                    <td>Test collection for UnitTestProject1.UnitTest2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>Traits</b></td>
+                                                    <td>TestType-UI</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>Duration</b></td>
+                                                    <td>0.2s</td>
+                                                </tr>
+                                            </table>
+                                            <p><b>Message</b></p>
+                                            <p>The test passed successfully</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="test">
+                                    <div class="collapsible-header test-name skipped"><i class="material-icons">expand_more</i>UnitTestProject1.UnitTest1.TestMethod5<span class="new badge blue right-align" style="margin-top:0px" data-badge-caption="Skipped"></span></div>
+                                    <div class="collapsible-body">
+                                        <div style="overflow-x:auto">
+                                            <table class="striped">
+                                                <tr class="collection-name">
+                                                    <td><b>Collection name</b></td>
+                                                    <td>Test collection for UnitTestProject1.UnitTest2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>Traits</b></td>
+                                                    <td>TestType-UI</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>Duration</b></td>
+                                                    <td>0.2s</td>
+                                                </tr>
+                                            </table>
+                                            <p><b>Message</b></p>
+                                            <p>The test was skipped</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="test">
+                                    <div class="collapsible-header test-name failed"><i class="material-icons">expand_more</i>Test SIX<span class="new badge red right-align" style="margin-top:0px" data-badge-caption="Failed"></span></div>
+                                    <div class="collapsible-body">
+                                        <div style="overflow-x:auto">
+                                            <table class="striped">
+                                                <tr class="collection-name">
+                                                    <td><b>Collection name</b></td>
+                                                    <td>Test collection for UnitTestProject1.UnitTest2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>Traits</b></td>
+                                                    <td>TestType-UI</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>Duration</b></td>
+                                                    <td>0.2s</td>
+                                                </tr>
+                                            </table>
+                                            <p><b>Message</b></p>
+                                            <p>Wrong boolean\r\nExpected: True\r\nActual:   Falseat UnitTestProject1.UnitTest1.TestMethod2() in c:\Users\roberto\Documents\Visual Studio 2017\Projects\UnitTestProject1\UnitTestProject1\UnitTest1.cs:line 19</p>
+                                        </div>                                                    
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>

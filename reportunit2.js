@@ -6,24 +6,29 @@ var errors = 0;
 
 $(document).ready(function() {
     /* init */
-    showTestList();
     drawPercentageChart();
+
     drawTestsChart();
 
-    buildSuiteDropdown();
+    buildCollectionsDropdown();
 
-    $('select').material_select();
-    suiteFilter();
-
+    //suiteFilter();
+    $('select').material_select();ß
     $(".collapsible").collapsible();
 });
 
-function buildSuiteDropdown(){
-    var numberOfSuites = $("#suite-collection .collection-item");
+function buildCollectionsDropdown() {
+    var collectionObject = $("#test-list .test .collection-name td:nth-child(2)");
+    
+    var collectionList = [];
+    for (i = 0; i < collectionObject.length; i++) {
+        collectionList.push(collectionObject[i].innerHTML);
+    }
 
-    for (i = 1; i <= numberOfSuites.length; i++){
-        var suiteName = $("#suite-collection li:nth-child(" + i + ") .suite-head").text();
-        var html = "<option value='" + i + "'>" + suiteName + "</option>";
+    var collections = Array.from(new Set(collectionList));
+    
+    for (i = 0; i < collections.length; i++){
+        var html = "<option value='" + i + "'>" + collections[i] + "</option>";
         $("#collection-select").append(html);
     }
 }
@@ -47,30 +52,13 @@ function suiteFilter() {
     });
 }
 
-function showTestList() {
-    $(".details-container").html("");
-    var numberOfSuites = $("#suite-collection .collection-item");
-    var html = ("<ul>");
-
-    for (i = 1; i <= numberOfSuites.length; i++){
-        var suiteChild = "li:nth-child(" + i + ") .collection-item";
-        
-        html += "<li>";
-        html += $("#suite-collection").find(suiteChild).html();
-        html += "</li>";
-    }
-    html += ("</ul>");
-
-    $(".details-container").append(html);
-    $(".details-container .suite-content").removeClass("hide");
-}
 
 function drawPercentageChart() {
-    total = $("#suite-collection .test-name").length;
-    passed = $("#suite-collection .test-name.passed").length;
-    failed = $("#suite-collection .test-name.failed").length;
-    errors = $("#suite-collection .test-name.error").length;
-    skipped = $("#suite-collection .test-name.skipped").length;
+    total = $("#test-list .test-name").length;
+    passed = $("#test-list .test-name.passed").length;
+    failed = $("#test-list .test-name.failed").length;
+    errors = $("#test-list .test-name.error").length;
+    skipped = $("#test-list .test-name.skipped").length;
 
     var passedPercentage = Math.round(((passed / total) * 100)) + "%";
     $(".pass-percentage").text(passedPercentage);
@@ -128,7 +116,7 @@ function drawTestsChart() {
                 }
             }
             text.push('</ul>');
-            console.log(text);
+            //console.log(text);
             return text.join('');
         },
         legend: {
@@ -147,40 +135,20 @@ function drawTestsChart() {
     document.getElementById("legend").innerHTML = legend;
 }
 
-/*
-function drawTestsChart() {
-	if (!$('#test-analysis').length) {
-		return false;
-    }
-    var ctx = document.getElementById("test-analysis").getContext("2d");
+function showTestList() {
+    $(".details-container").html("");
+    var numberOfSuites = $("#suite-collection .collection-item");
+    var html = ("<ul>");
 
-    data = {
-        labels: ["Passed", "Failed", "Skipped", "Errors"],
-        datasets: [
-            {
-                data: [passed, failed, skipped, errors],
-                backgroundColor: [
-                    "#66bb6a",
-                    "#ef5350",
-                    "#03a9f4",
-                    "#ffa726"
-                ]
-            }
-        ]
-    };
-    var options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        legend: {
-            display: true,
-            position: "right"
-        }
-    };
-    var myPieChart = new Chart(ctx,
-    {
-        type: "doughnut",
-        data: data,
-        options: options
-    });
+    for (i = 1; i <= numberOfSuites.length; i++){
+        var suiteChild = "li:nth-child(" + i + ") .collection-item";
+        
+        html += "<li>";
+        html += $("#suite-collection").find(suiteChild).html();
+        html += "</li>";
+    }
+    html += ("</ul>");
+
+    $(".details-container").append(html);
+    $(".details-container .suite-content").removeClass("hide");
 }
-*/
