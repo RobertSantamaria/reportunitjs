@@ -516,13 +516,8 @@ td > .label {
 	}
 }
 
-.padre {
-	float: left;
-}
-
 .divuno {
 	float: left;
-	max-width: 120px;
 }
 .divdos {
 	float: right;
@@ -530,6 +525,7 @@ td > .label {
 .clear {
 	clear: both;
 }
+
 .collapsible li.active i {
   transform: rotate(180deg);
 }
@@ -538,4 +534,14 @@ td > .label {
   border-right: none;
   border-left: none;
   margin: 0.5rem 0 1rem 0;
+}
+.collapsible-header {
+  display: block;
+}
+.collapsible-header div {
+  float: left;
+}
+.collapsible-header span {
+  float: right;
+  margin-top: 0px;
 }
