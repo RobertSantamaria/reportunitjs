@@ -10,12 +10,44 @@ $(document).ready(function() {
 
     drawTestsChart();
 
+    buildStatusDropdown();
     buildCollectionsDropdown();
+    buildTraitsDropdown();
 
-    //suiteFilter();
-    $('select').material_select();ß
-    $(".collapsible").collapsible();
+    statusFilter();
+    collectionFilter();
+    traitFilter();
+
+    $('select').material_select();
+    $('.collapsible').collapsible();
 });
+
+function buildStatusDropdown() {
+    var statusObject = $("#test-list .test .test-name");
+    
+    var statusList = [];
+    for (i = 0; i < statusObject.length; i++) {
+        var classAttribute = $(statusObject[i]).attr('class');
+        var st = "";
+        if (classAttribute.includes("passed")) {
+            st = "Passed";
+        }
+        else if (classAttribute.includes("failed")) {
+            st = "Failed";
+        }
+        else if (classAttribute.includes("skipped")) {
+            st = "Skipped";
+        }
+        statusList.push(st);
+    }
+
+    var status = Array.from(new Set(statusList));
+    
+    for (i = 0; i < status.length; i++){
+        var html = "<option value='" + i + "'>" + status[i] + "</option>";
+        $("#status-select").append(html);
+    }
+}
 
 function buildCollectionsDropdown() {
     var collectionObject = $("#test-list .test .collection-name td:nth-child(2)");
@@ -33,25 +65,90 @@ function buildCollectionsDropdown() {
     }
 }
 
-function suiteFilter() {
-    $("#collection-select").on("change", function(e) {
-        var suiteSelected = $('#collection-select').parent(["0"]).children()[1].value;
-        var numberOfSuites = $("#suite-collection .collection-item");
+function buildTraitsDropdown() {
+    var traitObject = $("#test-list .test .trait-name td:nth-child(2)");
+    
+    var traitList = [];
+    for (i = 0; i < traitObject.length; i++) {
+        traitList.push(traitObject[i].innerHTML);
+    }
 
-        for (i = 1; i <= numberOfSuites.length; i++) {
-            var suiteName = $(".details-container li:nth-child(" + i + ") .suite-head").text();
-            if (suiteName === suiteSelected) {
-                $(".details-container li:nth-child(" + i + ") .suite-head").removeClass("hide");
-                $(".details-container li:nth-child(" + i + ") .suite-content").removeClass("hide");
-            }
-            else {
-                $(".details-container li:nth-child(" + i + ") .suite-head").addClass("hide");
-                $(".details-container li:nth-child(" + i + ") .suite-content").addClass("hide");
+    var traits = Array.from(new Set(traitList));
+    
+    for (i = 0; i < traits.length; i++){
+        var html = "<option value='" + i + "'>" + traits[i] + "</option>";
+        $("#trait-select").append(html);
+    }
+}
+
+function statusFilter() {
+    $("#status-select").on("change", function(e) {
+        var statusSelected = $('#status-select').parent(["0"]).children()[1].value;
+        var testList = $("#test-list li.test");
+
+        if (statusSelected === "All Status") {
+            $(testList).removeClass('hide');
+        }
+        else {
+            for (i = 0; i < testList.length; i++) {
+                var statusName = $(testList[i]).find('.test-name').attr('class');
+                
+                if (statusName.includes(statusSelected.toLowerCase())) {
+                    $(testList[i]).removeClass('hide');
+                }
+                else {
+                    $(testList[i]).addClass('hide');
+                }
             }
         }
     });
 }
 
+function collectionFilter() {
+    $("#collection-select").on("change", function(e) {
+        var collectionSelected = $('#collection-select').parent(["0"]).children()[1].value;
+        var testList = $("#test-list li.test");
+
+        if (collectionSelected === "All Collections") {
+            $(testList).removeClass('hide');
+        }
+        else {
+            for (i = 0; i < testList.length; i++) {
+                var collectionName = $(testList[i]).find('.collection-name td:nth-child(2)').text();
+                
+                if (collectionSelected === collectionName) {
+                    $(testList[i]).removeClass('hide');
+                }
+                else {
+                    $(testList[i]).addClass('hide');
+                }
+            }
+        }
+    });
+}
+
+function traitFilter() {
+    $("#trait-select").on("change", function(e) {
+        var traitSelected = $('#trait-select').parent(["0"]).children()[1].value;
+        var testList = $("#test-list li.test");
+
+        if (traitSelected === "All Traits") {
+            $(testList).removeClass('hide');
+        }
+        else {
+            for (i = 0; i < testList.length; i++) {
+                var traitName = $(testList[i]).find('.trait-name td:nth-child(2)').text();
+                
+                if (traitSelected === traitName) {
+                    $(testList[i]).removeClass('hide');
+                }
+                else {
+                    $(testList[i]).addClass('hide');
+                }
+            }
+        }
+    });
+}
 
 function drawPercentageChart() {
     total = $("#test-list .test-name").length;

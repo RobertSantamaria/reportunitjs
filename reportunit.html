@@ -64,20 +64,41 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col l6">
+                <div class="col l4">
                     <div class="card-panel">
                         <div class="card-title"><b>Filters</b></div>
-                            <div class="input-field col s12">
-                                <select id="collection-select">
-                                    <option value="" disabled selected>Choose collection</option>
-                                </select>
-                            </div>
                         <div class="card-content">
-                            <button type="button" class="btn clear">Clear</button>
+                            <div class="status-filter">
+                                <h6>Status</h6>
+                                <div class="input-field col l12">
+                                    <select id="status-select">
+                                        <option value="" disabled selected>Choose Status</option>
+                                        <option value="0">All Status</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="collection-filter">
+                                <h6>Collections</h6>
+                                <div class="input-field col l12">
+                                    <select id="collection-select">
+                                        <option value="" disabled selected>Choose Collection</option>
+                                        <option value="0">All Collections</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="trait-filter">
+                                <h6>Traits</h6>
+                                <div class="input-field col l12">
+                                    <select id="trait-select">
+                                        <option value="" disabled selected>Choose Trait</option>
+                                        <option value="0">All Traits</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col l6">
+                <div class="col l8">
                     <div class="card-panel">
                         <div class="card-title"><b>Test Summary</b></div>
                         <div class="card-content">
@@ -91,7 +112,7 @@
                                                     <td><b>Collection name</b></td>
                                                     <td>Test collection for UnitTestProject1.UnitTest1</td>
                                                 </tr>
-                                                <tr>
+                                                <tr class="trait-name">
                                                     <td><b>Traits</b></td>
                                                     <td>TestType-UI</td>
                                                 </tr>
@@ -114,9 +135,9 @@
                                                     <td><b>Collection name</b></td>
                                                     <td>Test collection for UnitTestProject1.UnitTest1</td>
                                                 </tr>
-                                                <tr>
+                                                <tr class="trait-name">
                                                     <td><b>Traits</b></td>
-                                                    <td>TestType-UI</td>
+                                                    <td>TestType-System</td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>Duration</b></td>
@@ -137,7 +158,7 @@
                                                     <td><b>Collection name</b></td>
                                                     <td>Test collection for UnitTestProject1.UnitTest1</td>
                                                 </tr>
-                                                <tr>
+                                                <tr class="trait-name">
                                                     <td><b>Traits</b></td>
                                                     <td>TestType-UI</td>
                                                 </tr>
@@ -148,7 +169,7 @@
                                             </table>
                                             <p><b>Message</b></p>
                                             <p>Wrong boolean\r\nExpected: True\r\nActual:   Falseat UnitTestProject1.UnitTest1.TestMethod2() in c:\Users\roberto\Documents\Visual Studio 2017\Projects\UnitTestProject1\UnitTestProject1\UnitTest1.cs:line 19</p>
-                                        </div>                                                    
+                                        </div>                            
                                     </div>
                                 </li>
                                 <li class="test">
@@ -160,9 +181,9 @@
                                                     <td><b>Collection name</b></td>
                                                     <td>Test collection for UnitTestProject1.UnitTest2</td>
                                                 </tr>
-                                                <tr>
+                                                <tr class="trait-name">
                                                     <td><b>Traits</b></td>
-                                                    <td>TestType-UI</td>
+                                                    <td>TestType-System</td>
                                                 </tr>
                                                 <tr>
                                                     <td><b>Duration</b></td>
@@ -183,7 +204,7 @@
                                                     <td><b>Collection name</b></td>
                                                     <td>Test collection for UnitTestProject1.UnitTest2</td>
                                                 </tr>
-                                                <tr>
+                                                <tr class="trait-name">
                                                     <td><b>Traits</b></td>
                                                     <td>TestType-UI</td>
                                                 </tr>
@@ -206,7 +227,7 @@
                                                     <td><b>Collection name</b></td>
                                                     <td>Test collection for UnitTestProject1.UnitTest2</td>
                                                 </tr>
-                                                <tr>
+                                                <tr class="trait-name">
                                                     <td><b>Traits</b></td>
                                                     <td>TestType-UI</td>
                                                 </tr>
@@ -217,7 +238,7 @@
                                             </table>
                                             <p><b>Message</b></p>
                                             <p>Wrong boolean\r\nExpected: True\r\nActual:   Falseat UnitTestProject1.UnitTest1.TestMethod2() in c:\Users\roberto\Documents\Visual Studio 2017\Projects\UnitTestProject1\UnitTestProject1\UnitTest1.cs:line 19</p>
-                                        </div>                                                    
+                                        </div>                            
                                     </div>
                                 </li>
                             </ul>
