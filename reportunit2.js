@@ -5,9 +5,10 @@ var skipped = 0;
 var errors = 0;
 
 $(document).ready(function() {
-    /* init */
-    drawPercentageChart();
 
+    /* init */
+    
+    drawPercentageChart();
     drawTestsChart();
 
     buildStatusDropdown();
@@ -81,8 +82,24 @@ function buildTraitsDropdown() {
     }
 }
 
+function resetFilters(elementId) {
+
+    var selectList = ["status-select", "collection-select", "trait-select"];
+
+    for (i = 0; i < selectList.length; i++) {
+        if (elementId !== selectList[i]) {
+            var select = $("#" + selectList[i]);
+            select.prop('selectedIndex', 0);
+            select.material_select();
+        }
+    }
+}
+
 function statusFilter() {
     $("#status-select").on("change", function(e) {
+
+        resetFilters($(this)[0].id);
+
         var statusSelected = $('#status-select').parent(["0"]).children()[1].value;
         var testList = $("#test-list li.test");
 
@@ -106,6 +123,9 @@ function statusFilter() {
 
 function collectionFilter() {
     $("#collection-select").on("change", function(e) {
+
+        resetFilters($(this)[0].id);
+
         var collectionSelected = $('#collection-select').parent(["0"]).children()[1].value;
         var testList = $("#test-list li.test");
 
@@ -129,6 +149,9 @@ function collectionFilter() {
 
 function traitFilter() {
     $("#trait-select").on("change", function(e) {
+
+        resetFilters($(this)[0].id);
+
         var traitSelected = $('#trait-select').parent(["0"]).children()[1].value;
         var testList = $("#test-list li.test");
 
@@ -160,6 +183,9 @@ function drawPercentageChart() {
     var passedPercentage = Math.round(((passed / total) * 100)) + "%";
     $(".pass-percentage").text(passedPercentage);
     $(".dashboard .determinate").attr("style", "width:" + passedPercentage);
+
+    document.getElementById('tests-passed').textContent = passed + " passed";
+    document.getElementById('total-tests').textContent = total + " total";
 }
 
 function drawTestsChart() {
@@ -204,16 +230,14 @@ function drawTestsChart() {
 
             if (datasets.length) {
                 for (var i = 0; i < datasets[0].data.length; ++i) {
-                    text.push('<li><span style="background-color:' + datasets[0].backgroundColor[i] + ';"></span>');
+                    text.push('<li><div><span style="background-color:' + datasets[0].backgroundColor[i] + ';"></span>');
                     if (labels[i]) {
-                        text.push(datasets[0].data[i] + ' ' + labels[i]);
+                        text.push('<b>' + datasets[0].data[i] + ' ' + labels[i] + '</b> (' + Math.round(window[labels[i].toLowerCase()]/total*100) + '%)');
                     }
-                    //text.push('<div>percentage</div>');
                     text.push('</li>');
                 }
             }
             text.push('</ul>');
-            //console.log(text);
             return text.join('');
         },
         legend: {
@@ -230,22 +254,4 @@ function drawTestsChart() {
 
     var legend = chart.generateLegend();
     document.getElementById("legend").innerHTML = legend;
-}
-
-function showTestList() {
-    $(".details-container").html("");
-    var numberOfSuites = $("#suite-collection .collection-item");
-    var html = ("<ul>");
-
-    for (i = 1; i <= numberOfSuites.length; i++){
-        var suiteChild = "li:nth-child(" + i + ") .collection-item";
-        
-        html += "<li>";
-        html += $("#suite-collection").find(suiteChild).html();
-        html += "</li>";
-    }
-    html += ("</ul>");
-
-    $(".details-container").append(html);
-    $(".details-container .suite-content").removeClass("hide");
 }

@@ -18,24 +18,30 @@
                 <div class="col l4 dashboard">
                     <div class="card-panel">
                         <div class="card-title"><b>Test analysis</b></div>
-                        <div class="chart-box" style="display:inline-block">
-                            <div style="float:left">
-                                <canvas id="test-analysis"></canvas>
-                            </div>
-                            <div id="legend" style="float:right"></div>
+                        <div class="card-content analysis">
+                            <canvas id="test-analysis"></canvas>
+                            <div id="legend"></div>
                         </div>
                     </div>
                 </div>
                 <div class="col l4 dashboard">
                     <div class="card-panel">
                         <div class="card-title"><b>Pass percentage</b></div>
-                        <div class="panel-lead pass-percentage"></div>
-                        <div class='progress'>
-                            <div class='determinate'></div>
+                        <div class="card-content statistics">
+                            <div class="panel-lead">
+                                <div class="pass-percentage"></div>
+                                <div class="stats">
+                                    <div id="tests-passed"></div>
+                                    <div id="total-tests"></div>
+                                </div>
+                            </div>
+                            <div class='progress'>
+                                <div class='determinate'></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col l4 run-info">
+                <div class="col l4 run-info dashboard">
                     <div class="card-panel horizontal">
                         <div class="card-title"><b>Run info</b></div>
                         <div class="card-content">
