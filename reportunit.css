@@ -15,21 +15,11 @@ th, td {
 .z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-floating, .collapsible, .side-nav {
 	box-shadow: none;
 }
-[type='checkbox']:checked + label::before {
-	border-color: transparent #eee #eee transparent;
-}
-[type='checkbox'] + label::before {
-	border: 2px solid #ddd;
-	margin-top: 4px;
-}
 .select-wrapper input.select-dropdown, .input-field label {
 	font-size: 0.8rem;
 }
-.material-tooltip, label {
-	font-size: 13px !important;
-}
 .input-field label {
-	font-size: 11px !important;
+	font-size: 11px;
 }
 .dropdown-content {
 	min-width: 150px;
@@ -59,47 +49,8 @@ th, td {
 .btn i {
 	font-size: 13px;
 }
-.input-field label {
-	color: #db7093;
-	left: 0;
-}
 .hidden {
 	display: none;
-}
-.text-white {
-	color: #fff !important;
-}
-.weight-light {
-    font-size: 12px;
-	font-weight: 400;
-}
-.weight-normal {
-	font-weight: 500;
-}
-.weight-bold {
-	font-weight: 700;
-}
-.no-margin {
-	margin: 0 !important;
-}
-.no-margin-h {
-	margin-left: 0 !important;
-	margin-right: 0 !important;
-}
-.no-margin-v {
-	margin-bottom: 0 !important;
-	margin-top: 0 !important;
-}
-.no-padding {
-	padding: 0 !important;
-}
-.no-padding-h {
-	padding-left: 0 !important;
-	padding-right: 0 !important;
-}
-.no-padding-v {
-	padding-bottom: 0 !important;
-	padding-top: 0 !important;
 }
 .badge {
     border-radius: 100%;
@@ -118,56 +69,30 @@ th, td {
 	margin-bottom: 0;
 }
 
-/* ---- [ containers ] ---- */
-.no-tests {
-    margin-left: 11px;
-}
-.report-list, .suite-list, .suite-details {
-    bottom: 0;
-    top: 48px;
-    position: fixed;
-}
-.report-list {
-    left: 261px;
-    right: 20px;
-    /* top: 298px; */
-}
-.report-list, .suite-details {
-    overflow-y: auto;
-}
-.report-list > table {
-    margin-bottom: 50px;
-}
-.suite-list {
-    overflow-y: scroll;
-    width: 500px;
-}
-.suite-details {
-    left: 762px;
-    right: 1%;
-}
-.v-spacer {
-    top: 298px;
-}
-
 /* ---- [ dashboard ] ---- */
 .dashboard .card-panel {
 	height: 280px;
 }
-.card-panel .analysis {
+.dashboard .analysis {
+	display: flex;
 	flex-direction: row;
 }
-.card-panel .statistics {
+.dashboard .statistics {
 	flex-direction: column;
+}
+.dashboard .run-info {
+	font-size: 12px;
+	overflow-x: auto;
+}
+.card-panel .filters {
+	padding-bottom: 80px;
 }
 .card-title {
 	text-align: center;
 	font-size: 16px;
 }
-.dashboard .card-content {
-	display: flex;
-}
 .dashboard .card-content canvas {
+	height: 220px;
 	width: 220px;
 }
 #legend {

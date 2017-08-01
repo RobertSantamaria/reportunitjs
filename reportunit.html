@@ -15,7 +15,7 @@
     <body>
         <div class="main">
             <div class="row">
-                <div class="col l4 dashboard">
+                <div class="col l3 dashboard">
                     <div class="card-panel">
                         <div class="card-title"><b>Test analysis</b></div>
                         <div class="card-content analysis">
@@ -24,7 +24,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col l4 dashboard">
+                <div class="col l3 dashboard">
                     <div class="card-panel">
                         <div class="card-title"><b>Pass percentage</b></div>
                         <div class="card-content statistics">
@@ -41,30 +41,28 @@
                         </div>
                     </div>
                 </div>
-                <div class="col l4 run-info dashboard">
+                <div class="col l6 run-info dashboard">
                     <div class="card-panel horizontal">
                         <div class="card-title"><b>Run info</b></div>
-                        <div class="card-content">
-                            <div style="overflow-x:auto">
-                                <table class="striped">
-                                    <tr>
-                                        <td><b>Test results file</b></td>
-                                        <td>C:\Users\roberto\Desktop\test-output.xml</td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>Assembly name</b></td>
-                                        <td>C:\Users\roberto\Documents\Visual Studio 2017\Projects\UnitTestProject1\UnitTestProject1\bin\Debug\UnitTestProject1.DLL</td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>Test framework</b></td>
-                                        <td><span style="margin-right:10px">xUnit.net</span>2.2.0.3545</td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>Run date</b></td>
-                                        <td><span style="margin-right:10px">21:28:54</span>2017-06-29</td>
-                                    </tr>
-                                </table>
-                            </div>
+                        <div class="card-content run-info">
+                            <table class="striped">
+                                <tr>
+                                    <td><b>Test results file</b></td>
+                                    <td>C:\Users\roberto\Desktop\test-output.xml</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Assembly name</b></td>
+                                    <td>C:\jenkins\workspace\Projects\Dobson\dobson-automation-on-demand\DobsonAutomation\bin\Debug\DobsonAutomation.DLL</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Test framework</b></td>
+                                    <td><span style="margin-right:10px">xUnit.net</span>2.2.0.3545</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Run date</b></td>
+                                    <td><span style="margin-right:10px">21:28:54</span>2017-06-29</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -73,7 +71,7 @@
                 <div class="col l4">
                     <div class="card-panel">
                         <div class="card-title"><b>Filters</b></div>
-                        <div class="card-content">
+                        <div class="card-content filters">
                             <div class="status-filter">
                                 <h6>Status</h6>
                                 <div class="input-field col l12">
@@ -115,24 +113,22 @@
                                         <span class="new badge green" data-badge-caption="Passed"></span>
                                     </div>
                                     <div class="collapsible-body">
-                                        <div style="overflow-x:auto">
-                                            <table class="striped">
-                                                <tr class="collection-name">
-                                                    <td><b>Collection name</b></td>
-                                                    <td>Test collection for UnitTestProject1.UnitTest1</td>
-                                                </tr>
-                                                <tr class="trait-name">
-                                                    <td><b>Traits</b></td>
-                                                    <td>TestType-UI</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><b>Duration</b></td>
-                                                    <td>0.2s</td>
-                                                </tr>
-                                            </table>
-                                            <p><b>Message</b></p>
-                                            <p>The test passed successfully</p>
-                                        </div>
+                                        <table class="striped">
+                                            <tr class="collection-name">
+                                                <td><b>Collection name</b></td>
+                                                <td>Test collection for UnitTestProject1.UnitTest1</td>
+                                            </tr>
+                                            <tr class="trait-name">
+                                                <td><b>Traits</b></td>
+                                                <td>TestType-UI</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Duration</b></td>
+                                                <td>0.2s</td>
+                                            </tr>
+                                        </table>
+                                        <p><b>Message</b></p>
+                                        <p>The test passed successfully</p>
                                     </div>
                                 </li>
                                 <li class="test">
@@ -141,24 +137,22 @@
                                         <span class="new badge blue" data-badge-caption="Skipped"></span>
                                     </div>
                                     <div class="collapsible-body">
-                                        <div style="overflow-x:auto">
-                                            <table class="striped">
-                                                <tr class="collection-name">
-                                                    <td><b>Collection name</b></td>
-                                                    <td>Test collection for UnitTestProject1.UnitTest1</td>
-                                                </tr>
-                                                <tr class="trait-name">
-                                                    <td><b>Traits</b></td>
-                                                    <td>TestType-System</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><b>Duration</b></td>
-                                                    <td>0.2s</td>
-                                                </tr>
-                                            </table>
-                                            <p><b>Message</b></p>
-                                            <p>The test was skipped</p>
-                                        </div>
+                                        <table class="striped">
+                                            <tr class="collection-name">
+                                                <td><b>Collection name</b></td>
+                                                <td>Test collection for UnitTestProject1.UnitTest1</td>
+                                            </tr>
+                                            <tr class="trait-name">
+                                                <td><b>Traits</b></td>
+                                                <td>TestType-System</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Duration</b></td>
+                                                <td>0.2s</td>
+                                            </tr>
+                                        </table>
+                                        <p><b>Message</b></p>
+                                        <p>The test was skipped</p>
                                     </div>
                                 </li>
                                 <li class="test">
@@ -167,24 +161,22 @@
                                         <span class="new badge red" data-badge-caption="Failed"></span>
                                     </div>
                                     <div class="collapsible-body">
-                                        <div style="overflow-x:auto">
-                                            <table class="striped">
-                                                <tr class="collection-name">
-                                                    <td><b>Collection name</b></td>
-                                                    <td>Test collection for UnitTestProject1.UnitTest1</td>
-                                                </tr>
-                                                <tr class="trait-name">
-                                                    <td><b>Traits</b></td>
-                                                    <td>TestType-UI</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><b>Duration</b></td>
-                                                    <td>0.2s</td>
-                                                </tr>
-                                            </table>
-                                            <p><b>Message</b></p>
-                                            <p>Wrong boolean\r\nExpected: True\r\nActual:   Falseat UnitTestProject1.UnitTest1.TestMethod2() in c:\Users\roberto\Documents\Visual Studio 2017\Projects\UnitTestProject1\UnitTestProject1\UnitTest1.cs:line 19</p>
-                                        </div>                            
+                                        <table class="striped">
+                                            <tr class="collection-name">
+                                                <td><b>Collection name</b></td>
+                                                <td>Test collection for UnitTestProject1.UnitTest1</td>
+                                            </tr>
+                                            <tr class="trait-name">
+                                                <td><b>Traits</b></td>
+                                                <td>TestType-UI</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Duration</b></td>
+                                                <td>0.2s</td>
+                                            </tr>
+                                        </table>
+                                        <p><b>Message</b></p>
+                                        <p>Wrong boolean\r\nExpected: True\r\nActual:   Falseat UnitTestProject1.UnitTest1.TestMethod2() in c:\Users\roberto\Documents\Visual Studio 2017\Projects\UnitTestProject1\UnitTestProject1\UnitTest1.cs:line 19</p>
                                     </div>
                                 </li>
                                 <li class="test">
@@ -192,24 +184,22 @@
                                         <i class="material-icons">expand_more</i>UnitTestProject1.UnitTest1.TestMethod4
                                         <span class="new badge green" data-badge-caption="Passed"></span></div>
                                     <div class="collapsible-body">
-                                        <div style="overflow-x:auto">
-                                            <table class="striped">
-                                                <tr class="collection-name">
-                                                    <td><b>Collection name</b></td>
-                                                    <td>Test collection for UnitTestProject1.UnitTest2</td>
-                                                </tr>
-                                                <tr class="trait-name">
-                                                    <td><b>Traits</b></td>
-                                                    <td>TestType-System</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><b>Duration</b></td>
-                                                    <td>0.2s</td>
-                                                </tr>
-                                            </table>
-                                            <p><b>Message</b></p>
-                                            <p>The test passed successfully</p>
-                                        </div>
+                                        <table class="striped">
+                                            <tr class="collection-name">
+                                                <td><b>Collection name</b></td>
+                                                <td>Test collection for UnitTestProject1.UnitTest2</td>
+                                            </tr>
+                                            <tr class="trait-name">
+                                                <td><b>Traits</b></td>
+                                                <td>TestType-System</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Duration</b></td>
+                                                <td>0.2s</td>
+                                            </tr>
+                                        </table>
+                                        <p><b>Message</b></p>
+                                        <p>The test passed successfully</p>
                                     </div>
                                 </li>
                                 <li class="test">
@@ -242,24 +232,22 @@
                                         <i class="material-icons">expand_more</i>Test SIX
                                         <span class="new badge red" data-badge-caption="Failed"></span></div>
                                     <div class="collapsible-body">
-                                        <div style="overflow-x:auto">
-                                            <table class="striped">
-                                                <tr class="collection-name">
-                                                    <td><b>Collection name</b></td>
-                                                    <td>Test collection for UnitTestProject1.UnitTest2</td>
-                                                </tr>
-                                                <tr class="trait-name">
-                                                    <td><b>Traits</b></td>
-                                                    <td>TestType-UI</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><b>Duration</b></td>
-                                                    <td>0.2s</td>
-                                                </tr>
-                                            </table>
-                                            <p><b>Message</b></p>
-                                            <p>Wrong boolean\r\nExpected: True\r\nActual:   Falseat UnitTestProject1.UnitTest1.TestMethod2() in c:\Users\roberto\Documents\Visual Studio 2017\Projects\UnitTestProject1\UnitTestProject1\UnitTest1.cs:line 19</p>
-                                        </div>                            
+                                        <table class="striped">
+                                            <tr class="collection-name">
+                                                <td><b>Collection name</b></td>
+                                                <td>Test collection for UnitTestProject1.UnitTest2</td>
+                                            </tr>
+                                            <tr class="trait-name">
+                                                <td><b>Traits</b></td>
+                                                <td>TestType-UI</td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Duration</b></td>
+                                                <td>0.2s</td>
+                                            </tr>
+                                        </table>
+                                        <p><b>Message</b></p>
+                                        <p>Wrong boolean\r\nExpected: True\r\nActual:   Falseat UnitTestProject1.UnitTest1.TestMethod2() in c:\Users\roberto\Documents\Visual Studio 2017\Projects\UnitTestProject1\UnitTestProject1\UnitTest1.cs:line 19</p>
                                     </div>
                                 </li>
                             </ul>
