@@ -25,6 +25,7 @@ pipeline {
             }
             steps {
                 echo "ACS tests triggered"
+                sh 'python tests/acs/test.py'
             }
         }
         stage('Hamilton API Tests') {
@@ -33,6 +34,7 @@ pipeline {
             }
             steps {
                 echo "Hamilton API tests triggered"
+                sh 'python tests/hamiltonapi/test.py'
             }
         }
         stage('Web UI Tests') {
@@ -41,6 +43,7 @@ pipeline {
             }
             steps {
                 echo "Web UI tests triggered"
+                sh 'python tests/webui/test.py'
             }
         }
     }
